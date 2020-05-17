@@ -19,6 +19,9 @@
                                                         <form action="delete_item/{{ item.id }}" method="post"> {% csrf_token %}
                                                                 <button type="submit" value="delete" class="btn btn-sm mr-sm2">Del</button>
                                                         </form>
+                                                        <form action="update/{{item.id}}" method="post"> {% csrf_token %}
+                                                                <button type="submit" value="update" class="btn btn-sm mr-sm2">Update</button>
+                                                        </form>
                                                 </div>
                                         </li>
                                 {% endfor %}

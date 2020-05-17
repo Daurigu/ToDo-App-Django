@@ -27,5 +27,14 @@ def view_delete_item(request, id):
         obj.delete()
         return redirect('../../')
 
-
     return render(request,"index.html",{})
+
+
+def view_update_item(request, id):
+    item = Todo.objects.get(id=id)
+
+    context = {
+        "item": item,
+    }
+
+    return render(request, "edit.html", context)
