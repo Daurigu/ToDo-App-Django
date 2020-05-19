@@ -31,10 +31,18 @@ def view_delete_item(request, id):
 
 
 def view_update_item(request, id):
-    item = Todo.objects.get(id=id)
+    #form = todo_form()
+    updateForm = Todo.objects.get(id=id)
+    if request.method == 'POST':
+        print(request.POST)
+        form = todo_form(request.POST)
+        if form.is_valid():
+            updateForm.text = request.POST.get('text')
+            updateForm.save()
+            return redirect('../../')
 
     context = {
-        "item": item,
+        "form": form,
     }
 
     return render(request, "edit.html", context)

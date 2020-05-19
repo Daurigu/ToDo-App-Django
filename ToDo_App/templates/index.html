@@ -5,7 +5,7 @@
                         <form method="post"> {% csrf_token %}
                                 <h1>Welcome Back</h1>
                                 {{form.as_p}}
-                                <button type="submit" value="Sumbit" class="btn btn-primary mb-2 mr-sm2">Submit</button>
+                                <button type="submit" value="Sumbit" class="btn btn-success mb-2 mr-sm2">Submit</button>
                         </form>
                 </div>
          </div>
@@ -17,10 +17,12 @@
                                                 {{ item.text }}
                                                 <div class="float-right">
                                                         <form action="delete_item/{{ item.id }}" method="post"> {% csrf_token %}
-                                                                <button type="submit" value="delete" class="btn btn-sm mr-sm2">Del</button>
+                                                                <button type="submit" value="delete" class="btn btn-dark btn-sm mr-sm2">Del</button>
                                                         </form>
+                                                </div>
+                                                <div class="float-right mr-4">
                                                         <form action="update/{{item.id}}" method="post"> {% csrf_token %}
-                                                                <button type="submit" value="update" class="btn btn-sm mr-sm2">Update</button>
+                                                                <button type="submit" value="update" class="btn btn-warning btn-sm mr-sm2">Update</button>
                                                         </form>
                                                 </div>
                                         </li>
